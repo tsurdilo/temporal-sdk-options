@@ -1,2 +1,6 @@
-# temporal-sdk-options
-Temporal SDK option settings
+# List and descriptions of [Temporal](https://temporal.io/) options per SDK
+
+* [Java](java/README.md)
+* Go
+* PHP 
+* NodeJS
