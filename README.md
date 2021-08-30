@@ -2,5 +2,5 @@
 
 * [Java](java/README.md)
 * [Go](go/README.md)
-* PHP 
-* NodeJS
+* [PHP](php/README.md) 
+* [NodeJS](nodejs/README.md)
