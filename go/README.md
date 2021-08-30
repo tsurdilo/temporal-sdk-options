@@ -153,7 +153,7 @@
 | CronSchedule | Set the cron schedule for child workflow | string |
 | Memo | Set non-indexed info that will be shown in list child workflow | map[string]interface{} |
 | SearchAttributes | Set indexed info that can be used in query of List/Scan/Count child workflow APIs | map[string]interface{} |
-| ParentClosePolicy | Set policy to decide what to do for the child | ParentClosePolicy |
+| ParentClosePolicy | Set policy to decide what to do for the child when the parent closes | ParentClosePolicy |
 
 ### RegisterWorkflowOptions
 
