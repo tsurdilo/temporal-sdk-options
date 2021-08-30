@@ -1,27 +1,20 @@
 ## Java SDK Options
 
-- [External](#external)
-    * [ActivityOptions](#activityoptions)
-    * [ChildWorkflowOptions](#childworkflowoptions)
-    * [ContinueAsNewOptions](#continueasnewoptions)
-    * [LocalActivityOptions](#localactivityoptions)
-    * [RetryOptions](#retryoptions)
-    * [RpcRetryOptions](#rpcretryoptions)
-    * [WorkerFactoryOptions](#workerfactoryoptions)
-    * [WorkerOptions](#workeroptions)
-    * [WorkflowClientOptions](#workflowclientoptions)
-    * [WorkflowImplementationOptions](#workflowimplementationoptions)
-    * [WorkflowOptions](#workflowoptions)
-    * [WorkflowServiceStubsOptions](#workflowservicestubsoptions)
-- [Testing](#testing)
-    * [TestEnvironmentOptions](#testenvironmentoptions)
-- [Internal](#internal)
-    * [PollerOptions](#polleroptions)
-    * [SingleWorkflowOptions](#singleworkflowoptions)
-    
-### External
+- [ActivityOptions](#activityoptions)
+- [ChildWorkflowOptions](#childworkflowoptions)
+- [ContinueAsNewOptions](#continueasnewoptions)
+- [LocalActivityOptions](#localactivityoptions)
+- [RetryOptions](#retryoptions)
+- [RpcRetryOptions](#rpcretryoptions)
+- [WorkerFactoryOptions](#workerfactoryoptions)
+- [WorkerOptions](#workeroptions)
+- [WorkflowClientOptions](#workflowclientoptions)
+- [WorkflowImplementationOptions](#workflowimplementationoptions)
+- [WorkflowOptions](#workflowoptions)
+- [WorkflowServiceStubsOptions](#workflowservicestubsoptions)
+- [TestEnvironmentOptions](#testenvironmentoptions)
 
-#### ActivityOptions
+### ActivityOptions
 
 * Options used to configure how an activity is invoked
 
@@ -36,7 +29,7 @@
 | setContextPropagators | ContextPropagators help propagate the context from the workflow to the activities | List<ContextPropagator> |
 | setCancellationType | Activity cancellation type | ActivityCancellationType |
 
-#### ChildWorkflowOptions
+### ChildWorkflowOptions
 
 * Options used to configure how a child workflow is invoked
 
@@ -56,7 +49,7 @@
 | setMethodRetry | Method retry option | MethodRetry |
 | setCronSchedule | Cron definition | CronSchedules |
 
-#### ContinueAsNewOptions
+### ContinueAsNewOptions
 
 * Options used to configure how a continue as new run is invoked
 
@@ -68,7 +61,7 @@
 | setMemo | Memo to be added | String |
 | setSearchAttributes | Additional indexed information in result of list workflow | Map<String, Object> |
 
-#### LocalActivityOptions
+### LocalActivityOptions
 
 * Options used to configure how a local activity is invoked
 
@@ -80,7 +73,7 @@
 | setRetryOptions | Define how an Activity is retried in case of failure | RetryOptions |
 | setDoNotIncludeArgumentsIntoMarker | Set if the serialized arguments of the local Activity are not included in the Marker Event that stores local activity result | Map<String, Object> |
 
-#### RetryOptions
+### RetryOptions
 
 * Options for how retries should be performed
 
@@ -92,7 +85,7 @@
 | setMaximumInterval | Maximum interval between retries | Duration |
 | setDoNotRetry | List of application failures types to not retry | String[] |
 
-#### RpcRetryOptions
+### RpcRetryOptions
 
 * Options for how retries for RPC calls to the server should be performed
 
@@ -105,7 +98,7 @@
 | setMaximumAttempts | Maximum number of attempts | int |
 | setDoNotRetry | List of status codes for which not to retry | List<DoNotRetryPair> |
 
-#### WorkerFactoryOptions
+### WorkerFactoryOptions
 
 * Options used to configure worker factory
 
@@ -118,7 +111,7 @@
 | setEnableLoggingInReplay | Set, unset logging in replay | boolean |
 | setWorkflowHostLocalPollThreadCount | Set local thread poll count | int |
 
-#### WorkerOptions
+### WorkerOptions
 
 * Options used to configure worker
 
@@ -134,7 +127,7 @@
 | setLocalActivityWorkerOnly | Number of simultaneous poll requests on workflow task queue | int |
 | setDefaultDeadlockDetectionTimeout | Time period in ms that will be used the detect workflows deadlock | long |
 
-#### WorkflowClientOptions
+### WorkflowClientOptions
 
 * Options used to configure workflow client
 
@@ -147,7 +140,7 @@
 | setContextPropagators | Sets the context propagators | List<ContextPropagator> |
 | setQueryRejectCondition | Should a query be rejected by closed and failed workflows | QueryRejectCondition |
 
-#### WorkflowImplementationOptions
+### WorkflowImplementationOptions
 
 * Options used to configure workflow implementation
 
@@ -157,7 +150,7 @@
 | setActivityOptions | Set individual activity options per activityType | Map<String, ActivityOptions>[] |
 | setDefaultActivityOptions | Set default activity options | ActivityOptions |
 
-#### WorkflowOptions
+### WorkflowOptions
 
 * Options used to configure workflow
 
@@ -175,7 +168,7 @@
 | setSearchAttributes | Set additional indexed information in result of list workflow | Map<String, Object> |
 | setContextPropagators | Set the cron schedule | List<ContextPropagator> |
 
-#### WorkflowServiceStubsOptions
+### WorkflowServiceStubsOptions
 
 * Options used to configure workflow service stub
 
@@ -204,9 +197,7 @@
 | setKeepAliveTimeout | Set the keep alive timeout | Duration |
 | setKeepAlivePermitWithoutStream | Set if client sends keepalive pings even with no active RPCs | boolean |
 
-### Testing
-
-#### TestEnvironmentOptions
+### TestEnvironmentOptions
 
 * Options used to configure test environment
 
@@ -219,36 +210,3 @@
 | setTarget | Set endpoint for comminication with Temporal service (if external) | String |
 | setInitialTimeMillis | Initial time for the workflow virtual clock | long |
 | setInitialTime | Enable/disable logging in relay | Instant |
-
-### Internal
-
-#### PollerOptions
-
-* Options for component that polls Temporal task queues for tasks
-
-| Option | Description | Type |
-| --- | --- | --- |
-| setMaximumPollRatePerSecond | Maximum rate of polling | double |
-| setPollBackoffCoefficient | Coefficient to use when calculating exponential delay in case of failures | double |
-| setPollBackoffInitialInterval | Initial delay in case of failure. If backoff coefficient is 1 then it would be the constant | Duration |
-| setPollBackoffMaximumInterval | Maximum interval between polls in case of failures | Duration |
-| setPollThreadCount | Number of parallel polling threads | int |
-| setUncaughtExceptionHandler | Called to report unexpected exceptions in the poller threads | Thread.UncaughtExceptionHandler |
-| setPollThreadNamePrefix | Prefix to use when naming poller threads | String |
-
-
-#### SingleWorkflowOptions
-
-* Internal options to configure a single worker
-
-| Option | Description | Type |
-| --- | --- | --- |
-| setIdentity | Set worker identity | String |
-| setBinaryChecksum | Worker binary checksum | String |
-| setDataConverter | Data converter to be used with this worker | DataConverter |
-| setTaskExecutorThreadPoolSize | Worker task executor thread pool size | int |
-| setPollerOptions | Set poller options | PollerOptions |
-| setMetricsScope | Set the metric scope | Scope |
-| setEnableLoggingInReplay | Enable/disable logging in relay | boolean |
-| setContextPropagators | Specifies the list of context propagators to use during this workflow | List<ContextPropagator> |
-| setDefaultDeadlockDetectionTimeout | Initial delay in case of failure. If backoff coefficient is 1 then it would be the constant | long |
